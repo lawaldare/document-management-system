@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './components/App';
 import LandingPage from './components/LandingPage/LandingPage';
+import Signup from './components/auth/Signup';
 
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize';
@@ -20,10 +21,10 @@ ReactDOM.render(
     <BrowserRouter>
       <App>
         <Route path="/" exact component={LandingPage} />
-        {/* <Route path="/signup" component={Signup} />
-        <Route path="/dashboard" component={Dashboard} />
-        <Route path="/signout" component={Signout} />
-        <Route path="/signin" component={Signin} /> */}
+        <Route path="/signup" component={Signup} />
+        {/* <Route path="/dashboard" component={Dashboard} /> */}
+        {/* <Route path="/signout" component={Signout} /> */}
+        {/* <Route path="/signin" component={Signin} /> */}
       </App>
     </BrowserRouter>
   </Provider>,
