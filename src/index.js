@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import App from './components/App';
+import App from './components/App/App';
 import LandingPage from './components/LandingPage/LandingPage';
 import Signup from './components/auth/Signup';
 import Dashboard from './components/Dashboard/Dashboard';
