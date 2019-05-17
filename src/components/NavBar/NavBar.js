@@ -12,7 +12,7 @@ class NavBar extends Component {
             </Link>
             <ul class="right hide-on-med-and-down">
               <li>
-                <Link to="/signup">Register</Link>
+                <Link to="/api/v1/users/signup">Register</Link>
               </li>
               <li>
                 <Link to="/signin">Login</Link>

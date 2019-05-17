@@ -37,8 +37,12 @@ class Signup extends Component {
     });
 
     this.setState({
+      firstname: '',
+      lastname: '',
       email: '',
-      password: ''
+      username: '',
+      password: '',
+      role: ''
     });
 
     //console.log(user);
@@ -74,7 +78,7 @@ class Signup extends Component {
                 onChange={this.onFormChange}
                 value={this.state.email}
               />
-              <label HTMLfor="email">Last Name</label>
+              <label for="email">Last Name</label>
             </div>
           </div>
           <div class="row">
@@ -125,9 +129,7 @@ class Signup extends Component {
                 <option value="" disabled selected>
                   Choose your option
                 </option>
-                <option value="admin">Admin</option>
-                <option value="user">User</option>
-                <option value="viewer">Viewer</option>
+                <option value="regular">Regular</option>
               </select>
               <label>Select Role</label>
             </div>

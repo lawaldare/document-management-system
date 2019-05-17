@@ -21,7 +21,7 @@ ReactDOM.render(
     <BrowserRouter>
       <App>
         <Route path="/" exact component={LandingPage} />
-        <Route path="/signup" component={Signup} />
+        <Route path="/api/v1/users/signup" component={Signup} />
         {/* <Route path="/dashboard" component={Dashboard} /> */}
         {/* <Route path="/signout" component={Signout} /> */}
         {/* <Route path="/signin" component={Signin} /> */}
