@@ -5,12 +5,12 @@ class NavBar extends Component {
   render() {
     return (
       <nav style={{ backgroundColor: '#36474F' }}>
-        <div class="container">
-          <div class="nav-wrapper">
-            <Link to="/" class="brand-logo">
+        <div className="container">
+          <div className="nav-wrapper">
+            <Link to="/" className="brand-logo">
               dms
             </Link>
-            <ul class="right hide-on-med-and-down">
+            <ul className="right hide-on-med-and-down">
               <li>
                 <Link to="/api/v1/users/signup">Register</Link>
               </li>

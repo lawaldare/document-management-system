@@ -6,7 +6,6 @@ import * as actions from '../../actions';
 
 class Signup extends Component {
   componentDidMount() {
-    console.log(M);
     M.AutoInit();
   }
   state = {
@@ -28,8 +27,12 @@ class Signup extends Component {
     e.preventDefault();
 
     const user = {
+      firstname: this.state.firstname,
+      lastname: this.state.lastname,
       email: this.state.email,
-      password: this.state.password
+      username: this.state.username,
+      password: this.state.password,
+      role: this.state.role
     };
 
     this.props.signup(user, () => {
@@ -45,7 +48,7 @@ class Signup extends Component {
       role: ''
     });
 
-    //console.log(user);
+    console.log(user);
   };
 
   render() {
@@ -53,83 +56,86 @@ class Signup extends Component {
       <div className="row" style={{ height: '86vh' }}>
         <form className="col s12 m6 offset-m3" onSubmit={this.handleSubmit}>
           <h3>Register</h3>
-          <div class="row">
-            <div class="input-field col s12">
+          <div className="row">
+            <div className="input-field col s12">
               <input
                 name="firstname"
                 id="firstname"
                 type="text"
-                class="validate"
+                className="validate"
                 autoComplete="none"
                 onChange={this.onFormChange}
-                value={this.state.email}
+                value={this.state.firstname}
               />
-              <label HTMLfor="email">First Name</label>
+              <label htmlFor="firstname">First Name</label>
             </div>
           </div>
-          <div class="row">
-            <div class="input-field col s12">
+          <div className="row">
+            <div className="input-field col s12">
               <input
                 name="lastname"
                 id="lastname"
                 type="text"
-                class="validate"
+                className="validate"
                 autoComplete="none"
                 onChange={this.onFormChange}
-                value={this.state.email}
+                value={this.state.lastname}
               />
-              <label for="email">Last Name</label>
+              <label htmlFor="lastname">Last Name</label>
             </div>
           </div>
-          <div class="row">
-            <div class="input-field col s12">
+          <div className="row">
+            <div className="input-field col s12">
               <input
                 name="email"
                 id="email"
                 type="email"
-                class="validate"
+                className="validate"
                 autoComplete="none"
                 onChange={this.onFormChange}
                 value={this.state.email}
               />
-              <label HTMLfor="email">Email Address</label>
+              <label htmlFor="email">Email Address</label>
             </div>
           </div>
-          <div class="row">
-            <div class="input-field col s12">
+          <div className="row">
+            <div className="input-field col s12">
               <input
                 name="username"
                 id="username"
                 type="text"
-                class="validate"
+                className="validate"
                 autoComplete="none"
                 onChange={this.onFormChange}
-                value={this.state.email}
+                value={this.state.username}
               />
-              <label HTMLfor="email">Username</label>
+              <label htmlFor="username">Username</label>
             </div>
           </div>
-          <div class="row">
-            <div class="input-field col s12">
+          <div className="row">
+            <div className="input-field col s12">
               <input
                 id="password"
                 type="password"
                 name="password"
-                class="validate"
+                className="validate"
                 autoComplete="none"
                 onChange={this.onFormChange}
                 value={this.state.password}
               />
-              <label HTMLfor="password">Password</label>
+              <label htmlFor="password">Password</label>
             </div>
           </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <select>
+          <div className="row">
+            <div className="input-field col s12">
+              <select
+                name="role"
+                value={this.state.role}
+                onChange={this.onFormChange}>
                 <option value="" disabled selected>
                   Choose your option
                 </option>
-                <option value="regular">Regular</option>
+                <option value={'regular'}>Regular</option>
               </select>
               <label>Select Role</label>
             </div>
@@ -151,13 +157,11 @@ class Signup extends Component {
   }
 }
 
-// const mapStateToProps = state => {
-//   return { errorMsg: state.auth.errorMsg };
-// };
+const mapStateToProps = state => {
+  return { errorMsg: state.auth.errorMsg };
+};
 
-// export default connect(
-//   mapStateToProps,
-//   actions
-// )(Signup);
-
-export default Signup;
+export default connect(
+  mapStateToProps,
+  actions
+)(Signup);
