@@ -6,23 +6,7 @@ export default class Footer extends Component {
       <nav style={{ backgroundColor: '#36474F' }}>
         <div class="container">
           <div class="nav-wrapper">
-            <Link to="/" class="brand-logo">
-              dms
-            </Link>
-            <ul class="right hide-on-med-and-down">
-              <li>
-                <Link to="/signup">Register</Link>
-              </li>
-              <li>
-                <Link to="/signin">Login</Link>
-              </li>
-              <li>
-                <Link to="/dashboard">Dashboard</Link>
-              </li>
-              <li>
-                <Link to="/signout">Logout</Link>
-              </li>
-            </ul>
+            <p class="brand-logo">© Dare Lawal 2019. All rights reserved.</p>
           </div>
         </div>
       </nav>
