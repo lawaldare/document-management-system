@@ -21,7 +21,7 @@ class NavBar extends Component {
                 <Link to="/dashboard">Dashboard</Link>
               </li>
               <li>
-                <Link to="/signout">Logout</Link>
+                <Link to="/api/v1/users/logout">Logout</Link>
               </li>
             </ul>
           </div>

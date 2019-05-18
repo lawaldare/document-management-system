@@ -5,6 +5,7 @@ import App from './components/App/App';
 import LandingPage from './components/LandingPage/LandingPage';
 import Signup from './components/auth/Signup';
 import Signin from './components/auth/Signin';
+import Signout from './components/auth/Signout';
 import Dashboard from './components/Dashboard/Dashboard';
 
 import 'materialize-css/dist/css/materialize.min.css';
@@ -30,7 +31,7 @@ ReactDOM.render(
         <Route path="/api/v1/users/signup" component={Signup} />
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/api/v1/users/login" component={Signin} />
-        {/* <Route path="/signin" component={Signin} /> */}
+        <Route path="/api/v1/users/logout" component={Signout} />
       </App>
     </BrowserRouter>
   </Provider>,

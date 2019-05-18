@@ -28,3 +28,12 @@ export const signin = (user, callback) => async dispatch => {
     dispatch({ type: AUTH_ERROR, payload: 'Invalid login details' });
   }
 };
+
+export const signout = () => {
+  localStorage.removeItem('token');
+
+  return {
+    type: AUTH_USER,
+    payload: ''
+  };
+};
