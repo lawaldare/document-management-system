@@ -30,8 +30,8 @@ ReactDOM.render(
         <Route path="/" exact component={LandingPage} />
         <Route path="/api/v1/users/signup" component={Signup} />
         <Route path="/dashboard" component={Dashboard} />
-        <Route path="/api/v1/users/login" component={Signin} />
         <Route path="/api/v1/users/logout" component={Signout} />
+        <Route path="/api/v1/users/login" component={Signin} />
       </App>
     </BrowserRouter>
   </Provider>,
