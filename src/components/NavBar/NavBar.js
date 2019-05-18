@@ -15,7 +15,7 @@ class NavBar extends Component {
                 <Link to="/api/v1/users/signup">Register</Link>
               </li>
               <li>
-                <Link to="/signin">Login</Link>
+                <Link to="/api/v1/users/login">Login</Link>
               </li>
               <li>
                 <Link to="/dashboard">Dashboard</Link>
