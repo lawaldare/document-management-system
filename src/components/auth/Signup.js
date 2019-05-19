@@ -48,7 +48,7 @@ class Signup extends Component {
       role: ''
     });
 
-    console.log(user);
+    //console.log(user);
   };
 
   render() {

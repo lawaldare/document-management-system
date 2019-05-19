@@ -34,7 +34,7 @@ class NavBar extends Component {
         <div className="container">
           <div className="nav-wrapper">
             <Link to="/" className="brand-logo">
-              dms
+              d m s
             </Link>
             {this.renderLinks()}
           </div>
