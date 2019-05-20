@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import '../../../setup.Tests';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import SignUp from '../Signup';
 
 import { BrowserRouter, Route } from 'react-router-dom';

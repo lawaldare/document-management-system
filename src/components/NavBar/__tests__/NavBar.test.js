@@ -1,21 +1,47 @@
 import React from 'react';
 import expect from 'expect';
 import '../../../setup.Tests';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import NavBar from '../NavBar';
 
-describe('NavBar Tests', function() {
-  let wrapper;
-  beforeEach(() => (wrapper = shallow(<NavBar />)));
+import { BrowserRouter, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import reducers from '../../../reducers';
+import thunk from 'redux-thunk';
 
-  it('renders the NavBar', () => {
-    expect(wrapper).toBeTruthy();
-  });
+const store = createStore(
+  reducers,
+  { auth: { authenticated: localStorage.getItem('token') } },
+  applyMiddleware(thunk)
+);
 
-  it('renders NavBar with the correct content', function() {
-    let component = shallow(<NavBar />);
-    expect(component.find('dms'));
-    expect(component.find('li').length).toEqual(4);
-    component.unmount();
-  });
+let wrapper;
+
+beforeEach(
+  () =>
+    (wrapper = mount(
+      <Provider store={store}>
+        <BrowserRouter>
+          <NavBar />
+        </BrowserRouter>
+      </Provider>
+    ))
+);
+
+it('renders the NavBar', () => {
+  expect(wrapper).toBeTruthy();
+});
+
+it('renders NavBar with the correct content', function() {
+  let component = mount(
+    <Provider store={store}>
+      <BrowserRouter>
+        <NavBar />
+      </BrowserRouter>
+    </Provider>
+  );
+  expect(component.find('dms'));
+  expect(component.find('li').length).toEqual(2);
+  component.unmount();
 });
