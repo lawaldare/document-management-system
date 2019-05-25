@@ -11,11 +11,13 @@ import Dashboard from './components/Dashboard/Dashboard';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize';
 
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';
 import thunk from 'redux-thunk';
+
+import PrivateRoute from './components/PrivateRoute';
 
 const store = createStore(
   reducers,
@@ -29,7 +31,9 @@ ReactDOM.render(
       <App>
         <Route path="/" exact component={LandingPage} />
         <Route path="/api/v1/users/signup" component={Signup} />
-        <Route path="/dashboard" component={Dashboard} />
+        <Switch>
+          <PrivateRoute path="/dashboard" component={Dashboard} />
+        </Switch>
         <Route path="/api/v1/users/logout" component={Signout} />
         <Route path="/api/v1/users/login" component={Signin} />
       </App>
