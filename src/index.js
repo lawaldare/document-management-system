@@ -1,12 +1,44 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import './index.scss';
+import App from './components/App/App';
+import LandingPage from './components/LandingPage/LandingPage';
+import Signup from './components/auth/Signup';
+import Signin from './components/auth/Signin';
+import Signout from './components/auth/Signout';
+import Dashboard from './components/Dashboard/Dashboard';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import 'materialize-css/dist/css/materialize.min.css';
+import 'materialize-css/dist/js/materialize';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import reducers from './reducers';
+import thunk from 'redux-thunk';
+
+import PrivateRoute from './components/PrivateRoute';
+
+const store = createStore(
+  reducers,
+  { auth: { authenticated: localStorage.getItem('token') } },
+  applyMiddleware(thunk)
+);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <BrowserRouter>
+      <App>
+        <Route path="/" exact component={LandingPage} />
+        <Route path="/api/v1/users/signup" component={Signup} />
+        <Switch>
+          <PrivateRoute path="/dashboard" component={Dashboard} />
+        </Switch>
+        <Route path="/api/v1/users/logout" component={Signout} />
+        <Route path="/api/v1/users/login" component={Signin} />
+      </App>
+    </BrowserRouter>
+  </Provider>,
+
+  document.getElementById('root')
+);
