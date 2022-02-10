@@ -9,7 +9,7 @@
     "expect": "^24.8.0",
     "materialize-css": "^1.0.0",
     "moxios": "^0.4.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "react": "^16.8.6",
     "react-addons-test-utils": "^15.6.2",
     "react-dom": "^16.8.6",
